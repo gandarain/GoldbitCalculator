@@ -10,9 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-vector-icons/material-design-icons": "^12.3.0",
+    "@react-native/new-app-screen": "0.80.1",
     "react": "19.1.0",
-    "react-native": "0.80.1",
-    "@react-native/new-app-screen": "0.80.1"
+    "react-native": "0.80.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
