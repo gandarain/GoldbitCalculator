@@ -18,6 +18,7 @@
     "formik": "2.4.6",
     "react": "19.1.0",
     "react-native": "0.80.1",
+    "react-native-bootsplash": "6.3.11",
     "yup": "1.7.1"
   },
   "devDependencies": {
