@@ -2,6 +2,7 @@ import UIKit
 import React
 import React_RCTAppDelegate
 import ReactAppDependencyProvider
+import RNBootSplash
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       launchOptions: launchOptions
     )
 
+    if let rootView = window?.rootViewController?.view {
+      RNBootSplash.initWithStoryboard("BootSplash", rootView: rootView)
+    }
+
     return true
   }
 }
@@ -39,10 +44,10 @@ class ReactNativeDelegate: RCTDefaultReactNativeFactoryDelegate {
   }
 
   override func bundleURL() -> URL? {
-#if DEBUG
+  #if DEBUG
     RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index")
-#else
+  #else
     Bundle.main.url(forResource: "main", withExtension: "jsbundle")
-#endif
+  #endif
   }
 }
