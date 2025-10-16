@@ -1,0 +1,13 @@
+const Colors = {
+  BLACK: '#1F1F1F',
+  SECOND_BLACK: '#121212',
+  THRID_BLACK: '#2B2B2B',
+  WHITE: '#FFFFFF',
+  GREY: '#B0B0B0',
+  YELLOW: '#FFD700',
+  SECOND_YELLOW: '#D4AF37',
+  BLUE: '#132440',
+  SECOND_BLUE: '#3B9797'
+};
+
+export default Colors;
