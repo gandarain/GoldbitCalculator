@@ -12,6 +12,9 @@ const Navigator = () => (
     <Stack.Screen
       name={Routes.Welcome}
       component={Welcome}
+      options={{
+        headerShown: false,
+      }}
     />
     <Stack.Screen
       name={Routes.Login}
