@@ -1,24 +1,31 @@
-import React from 'react'
+import React from 'react';
 import { View, StatusBar, Platform, StyleSheet } from 'react-native';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import Colors from './Assets/Colors';
-import { scaleHeight } from './Utils/Size'
+import Navigation from './Navigation';
 
-import Navigation from './Navigation'
+const AppContent = () => {
+  const insets = useSafeAreaInsets();
 
-const App = () => (
-  <>
+  return (
     <View style={styles.container}>
-      {Platform.OS === 'ios' && <View style={styles.fakeStatusBar} />}
+      {Platform.OS === 'ios' && <View style={[styles.fakeStatusBar, { height: insets.top || 44 }]} />}
       <StatusBar
+        translucent={Platform.OS === 'android'}
         backgroundColor={Colors.BLUE}
         barStyle="light-content"
-        translucent
       />
       <Navigation />
     </View>
-  </>
-)
+  );
+};
+
+const App = () => (
+  <SafeAreaProvider>
+    <AppContent />
+  </SafeAreaProvider>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -27,9 +34,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.BLUE,
   },
   fakeStatusBar: {
-    height: scaleHeight(30),
     backgroundColor: Colors.BLUE,
   },
 });
 
-export default App
+export default App;

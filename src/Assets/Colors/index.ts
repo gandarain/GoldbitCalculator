@@ -6,6 +6,7 @@ const Colors = {
   GREY: '#B0B0B0',
   YELLOW: '#FFD700',
   SECOND_YELLOW: '#D4AF37',
+  THIRD_YELLOW: '#FCF9EA',
   BLUE: '#132440',
   SECOND_BLUE: '#3B9797'
 };

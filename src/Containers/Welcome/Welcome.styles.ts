@@ -8,7 +8,7 @@ import { Styles } from './Welcome.types'
 const styles = StyleSheet.create<Styles>({
   container: {
     flexGrow: 1,
-    backgroundColor: Colors.BLUE,
+    backgroundColor: Colors.THIRD_YELLOW,
   },
   content: {
     flex: 1,
@@ -16,8 +16,8 @@ const styles = StyleSheet.create<Styles>({
     alignItems: 'center'
   },
   imageBanner: {
-    height: scaleHeight(100),
-    width: scaleWidth(200),
+    height: scaleHeight(40),
+    width: scaleWidth(50),
   },
   containerDescription: {
     justifyContent: 'center',
@@ -26,13 +26,13 @@ const styles = StyleSheet.create<Styles>({
   textTitle: {
     fontSize: scaleFont(20),
     fontFamily: 'Poppins-Bold',
-    color: Colors.WHITE,
+    color: Colors.BLACK,
     marginTop: scaleHeight(10)
   },
   textSubtitle: {
     fontSize: scaleFont(15),
     fontFamily: 'Poppins-Regular',
-    color: Colors.WHITE,
+    color: Colors.BLACK,
     textAlign: 'center',
     marginHorizontal: scaleWidth(10)
   },
@@ -64,7 +64,8 @@ const styles = StyleSheet.create<Styles>({
     alignItems: 'center',
     borderRadius: 10,
     height: scaleHeight(40),
-    borderColor: Colors.SECOND_BLUE
+    borderColor: Colors.SECOND_BLUE,
+    borderWidth: 1
   },
   textButtonRegister: {
     fontSize: scaleFont(18),
