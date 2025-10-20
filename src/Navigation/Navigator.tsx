@@ -5,7 +5,7 @@ import Colors from '../Assets/Colors'
 import Routes from './Routes'
 import Params from './Params'
 
-import { Login, Welcome } from '../Containers'
+import { Login, Welcome, Register } from '../Containers'
 
 const Stack = createNativeStackNavigator<Params>()
 
@@ -21,6 +21,16 @@ const Navigator = () => (
     <Stack.Screen
       name={Routes.Login}
       component={Login}
+      options={{
+        headerStyle: {
+          backgroundColor: Colors.BLUE
+        },
+        headerTintColor: Colors.WHITE
+      }}
+    />
+    <Stack.Screen
+      name={Routes.Register}
+      component={Register}
       options={{
         headerStyle: {
           backgroundColor: Colors.BLUE
