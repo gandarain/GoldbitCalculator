@@ -2,13 +2,13 @@ import { StyleSheet } from 'react-native'
 
 import Colors from '../../Assets/Colors'
 
-import { Styles } from './Login.types'
+import { Styles } from './Register.types'
 
 const styles = StyleSheet.create<Styles>({
   container: {
     flexGrow: 1,
     backgroundColor: Colors.THIRD_YELLOW,
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   content: {
     flex: 1,

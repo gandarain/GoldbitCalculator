@@ -24,7 +24,7 @@ const Welcome = (): React.JSX.Element => {
           <TouchableOpacity style={styles.buttonLogin} onPress={() => navigation.navigate(Routes.Login)}>
             <Text style={styles.textButtonLogin}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonRegister} onPress={() => navigation.navigate(Routes.Login)}>
+          <TouchableOpacity style={styles.buttonRegister} onPress={() => navigation.navigate(Routes.Register)}>
             <Text style={styles.textButtonRegister}>Register</Text>
           </TouchableOpacity>
         </View>
