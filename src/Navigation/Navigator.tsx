@@ -1,4 +1,4 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createNativeStackNavigator, NativeStackNavigationOptions } from '@react-navigation/native-stack'
 
 import Colors from '../Assets/Colors'
 
@@ -6,6 +6,14 @@ import Routes from './Routes'
 import Params from './Params'
 
 import { Login, Welcome, Register } from '../Containers'
+
+export const headerOptions = (title?: string): NativeStackNavigationOptions => ({
+  headerStyle: {
+    backgroundColor: Colors.BLUE,
+  },
+  headerTintColor: Colors.WHITE,
+  title,
+})
 
 const Stack = createNativeStackNavigator<Params>()
 
@@ -21,22 +29,12 @@ const Navigator = () => (
     <Stack.Screen
       name={Routes.Login}
       component={Login}
-      options={{
-        headerStyle: {
-          backgroundColor: Colors.BLUE
-        },
-        headerTintColor: Colors.WHITE
-      }}
+      options={headerOptions('Login')}
     />
     <Stack.Screen
       name={Routes.Register}
       component={Register}
-      options={{
-        headerStyle: {
-          backgroundColor: Colors.BLUE
-        },
-        headerTintColor: Colors.WHITE
-      }}
+      options={headerOptions('Register')}
     />
   </Stack.Navigator>
 )
