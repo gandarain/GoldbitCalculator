@@ -164,7 +164,7 @@ const renderImageBackground = () => (
     style={styles.imageBackground}
     resizeMode="stretch"
   >
-    <Text style={styles.textTitle}>Masukkan email dan password anda</Text>
+    <Text style={styles.textTitle}>Masukkan data diri anda</Text>
   </ImageBackground>
 )
 
