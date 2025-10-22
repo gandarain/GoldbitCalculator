@@ -7,7 +7,7 @@ import { Styles } from './InputPassword.types'
 
 const styles = StyleSheet.create<Styles>({
   label: {
-    fontSize: scaleFont(14),
+    fontSize: scaleFont(15),
     fontFamily: 'Poppins-Regular',
     color: Colors.BLACK,
     marginBottom: scaleHeight(5),
@@ -27,7 +27,7 @@ const styles = StyleSheet.create<Styles>({
     paddingHorizontal: scaleWidth(12),
     paddingRight: scaleWidth(40),
     backgroundColor: Colors.WHITE,
-    fontSize: scaleFont(14),
+    fontSize: scaleFont(15),
     marginBottom: 0,
   },
   iconPassword: {
@@ -41,7 +41,7 @@ const styles = StyleSheet.create<Styles>({
     height: scaleHeight(18),
   },
   errorText: {
-    color: 'red',
+    color: Colors.RED,
     fontSize: scaleFont(12),
     fontFamily: 'Poppins-Regular'
   }
