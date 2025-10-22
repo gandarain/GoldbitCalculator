@@ -9,7 +9,9 @@ const Colors = {
   SECOND_YELLOW: '#D4AF37',
   THIRD_YELLOW: '#FCF9EA',
   BLUE: '#132440',
-  SECOND_BLUE: '#3B9797'
-};
+  SECOND_BLUE: '#3B9797',
+  RED: '#EB4646',
+  SECOND_RED: '#90323D'
+}
 
-export default Colors;
+export default Colors

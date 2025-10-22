@@ -7,9 +7,6 @@ export type Styles = {
   imageBackground: ViewStyle,
   textTitle: TextStyle,
   form: ViewStyle,
-  label: TextStyle,
-  input: ViewStyle & TextStyle,
-  errorText: TextStyle,
   footer: ViewStyle,
   button: ViewStyle,
   buttonText: TextStyle

@@ -1,5 +1,7 @@
 import { ImageStyle, TextStyle, ViewStyle } from 'react-native'
 
+import type { UseNavigation } from '../../Types'
+
 export type Styles = {
   container: ViewStyle,
   content: ViewStyle,
@@ -12,4 +14,8 @@ export type Styles = {
   textButtonLogin: TextStyle,
   buttonRegister: ViewStyle,
   textButtonRegister: TextStyle
+}
+
+export type States = {
+  navigation: UseNavigation
 }

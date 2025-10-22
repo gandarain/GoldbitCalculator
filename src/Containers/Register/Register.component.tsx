@@ -4,7 +4,6 @@ import {
   View,
   Text,
   ImageBackground,
-  TextInput,
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
@@ -12,8 +11,7 @@ import {
 import { Formik } from 'formik'
 
 import HeaderBackground from '../../Assets/Images/HeaderBackground.png'
-import Colors from '../../Assets/Colors'
-import { InputPassword } from '../../Components'
+import { InputPassword, InputText } from '../../Components'
 import type { FormikFormRegister } from '../../Types'
 
 import {
@@ -29,40 +27,27 @@ import styles from './Register.styles'
 import type { States } from './Register.types'
 
 const renderInputFullName = (formik: FormikFormRegister) => (
-  <>
-    <Text style={styles.label}>Nama Lengkap</Text>
-    <TextInput
-      style={styles.input}
-      placeholder="Masukkan nama lengkap anda"
-      placeholderTextColor={Colors.SECOND_GREY}
-      autoCapitalize="none"
-      value={formik.values.fullName}
-      onChangeText={formik.handleChange('fullName')}
-      onBlur={onHandleBlur(formik, 'fullName')}
-    />
-    {formik.touched.fullName && formik.errors.fullName && (
-      <Text style={styles.errorText}>{formik.errors.fullName}</Text>
-    )}
-  </>
+  <InputText
+    label='Nama Lengkap'
+    name='fullName'
+    placeholder='Masukkan nama lengkap anda'
+    keyboardType={undefined}
+    autoCapitalize={undefined}
+    formik={formik}
+    onHandleBlur={onHandleBlur(formik, 'fullName')}
+  />
 )
 
 const renderInputEmail = (formik: FormikFormRegister) => (
-  <>
-    <Text style={styles.label}>Email</Text>
-    <TextInput
-      style={styles.input}
-      placeholder="Masukkan email anda"
-      placeholderTextColor={Colors.SECOND_GREY}
-      keyboardType="email-address"
-      autoCapitalize="none"
-      value={formik.values.email}
-      onChangeText={formik.handleChange('email')}
-      onBlur={onHandleBlur(formik, 'email')}
-    />
-    {formik.touched.email && formik.errors.email && (
-      <Text style={styles.errorText}>{formik.errors.email}</Text>
-    )}
-  </>
+  <InputText
+    label='Email'
+    name='email'
+    placeholder='Masukkan email anda'
+    keyboardType="email-address"
+    autoCapitalize="none"
+    formik={formik}
+    onHandleBlur={onHandleBlur(formik, 'email')}
+  />
 )
 
 const renderInputPassword = (states: States, formik: FormikFormRegister) => (
