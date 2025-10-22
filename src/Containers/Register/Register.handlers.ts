@@ -1,8 +1,8 @@
-import type { FormikProps } from 'formik'
+import type { FormikFormRegister, RegisterFormValues } from '../../Types'
 
-import type { RegisterFormValues, States } from './Register.types'
+import type { States } from './Register.types'
 
-export const onHandleBlur = ({ handleBlur }: FormikProps<RegisterFormValues>, input: string) => () => {
+export const onHandleBlur = ({ handleBlur }: FormikFormRegister, input: string) => () => {
   handleBlur(input)
 }
 
@@ -10,7 +10,7 @@ export const onSubmitForm = () => (values: RegisterFormValues) => {
   console.log('Login submit:', values)
 }
 
-export const onPressButtonSubmit = ({ handleSubmit }: FormikProps<RegisterFormValues>) => () => {
+export const onPressButtonSubmit = ({ handleSubmit }: FormikFormRegister) => () => {
   handleSubmit()
 }
 
