@@ -4,7 +4,6 @@ import {
   View,
   Text,
   ImageBackground,
-  TextInput,
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
@@ -12,8 +11,7 @@ import {
 import { Formik } from 'formik'
 
 import HeaderBackground from '../../Assets/Images/HeaderBackground.png'
-import Colors from '../../Assets/Colors'
-import { InputPassword } from '../../Components'
+import { InputPassword, InputText } from '../../Components'
 import type { FormikFormLogin } from '../../Types'
 
 import { onHandleBlur, onSubmitForm, onPressButtonSubmit, onPressIconPassword } from './Login.handlers'
@@ -23,22 +21,15 @@ import styles from './Login.styles'
 import type { States } from './Login.types'
 
 const renderInputEmail = (formik: FormikFormLogin) => (
-  <>
-    <Text style={styles.label}>Email</Text>
-    <TextInput
-      style={styles.input}
-      placeholder="Masukkan email anda"
-      placeholderTextColor={Colors.SECOND_GREY}
-      keyboardType="email-address"
-      autoCapitalize="none"
-      value={formik.values.email}
-      onChangeText={formik.handleChange('email')}
-      onBlur={onHandleBlur(formik, 'email')}
-    />
-    {formik.touched.email && formik.errors.email && (
-      <Text style={styles.errorText}>{formik.errors.email}</Text>
-    )}
-  </>
+  <InputText
+    label='Email'
+    name='email'
+    placeholder='Masukkan email anda'
+    keyboardType="email-address"
+    autoCapitalize="none"
+    formik={formik}
+    onHandleBlur={onHandleBlur(formik, 'email')}
+  />
 )
 
 const renderInputPassword = (states: States, formik: FormikFormLogin) => (
