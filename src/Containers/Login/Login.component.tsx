@@ -10,20 +10,19 @@ import {
   Platform,
 } from 'react-native'
 import { Formik } from 'formik'
-import MaterialIcons from '@react-native-vector-icons/material-design-icons'
-import type { FormikProps } from 'formik'
 
 import HeaderBackground from '../../Assets/Images/HeaderBackground.png'
 import Colors from '../../Assets/Colors'
-import { scaleSize } from '../../Utils/Size'
+import { InputPassword } from '../../Components'
+import type { FormikFormLogin } from '../../Types'
 
 import { onHandleBlur, onSubmitForm, onPressButtonSubmit, onPressIconPassword } from './Login.handlers'
 import { useGetStateAndSetters } from './useLogin'
 import config from './Login.config'
 import styles from './Login.styles'
-import type { LoginFormValues, States } from './Login.types'
+import type { States } from './Login.types'
 
-const renderInputEmail = (formik: FormikProps<LoginFormValues>) => (
+const renderInputEmail = (formik: FormikFormLogin) => (
   <>
     <Text style={styles.label}>Email</Text>
     <TextInput
@@ -42,39 +41,19 @@ const renderInputEmail = (formik: FormikProps<LoginFormValues>) => (
   </>
 )
 
-const renderInputPassword = (states: States, formik: FormikProps<LoginFormValues>) => (
-  <>
-    <Text style={styles.label}>Password</Text>
-    <View style={styles.passwordWrapper}>
-      <TextInput
-        style={styles.inputPassword}
-        placeholder="Masukkan password anda"
-        placeholderTextColor={Colors.SECOND_GREY}
-        secureTextEntry={!states.showPassword}
-        value={formik.values.password}
-        onChangeText={formik.handleChange('password')}
-        onBlur={onHandleBlur(formik, 'password')}
-      />
-      <TouchableOpacity
-        style={styles.iconPassword}
-        onPress={onPressIconPassword(states)}
-        hitSlop={config.hitSlopIconPassword}
-        activeOpacity={0.7}
-      >
-        <MaterialIcons
-          name={states.showPassword ? 'eye-outline' : 'eye-off'}
-          size={scaleSize(18)}
-          color={Colors.GREY}
-        />
-      </TouchableOpacity>
-    </View>
-    {formik.touched.password && formik.errors.password && (
-      <Text style={styles.errorText}>{formik.errors.password}</Text>
-    )}
-  </>
+const renderInputPassword = (states: States, formik: FormikFormLogin) => (
+  <InputPassword
+    label='Password'
+    name='password'
+    placeholder='Masukkan password anda'
+    showPassword={states.showPassword}
+    formik={formik}
+    onPressIconPassword={onPressIconPassword(states)}
+    onHandleBlur={onHandleBlur(formik, 'password')}
+  />
 )
 
-const renderButton = (formik: FormikProps<LoginFormValues>) => (
+const renderButton = (formik: FormikFormLogin) => (
   <TouchableOpacity style={styles.button} onPress={onPressButtonSubmit(formik)}>
     <Text style={styles.buttonText}>Login</Text>
   </TouchableOpacity>

@@ -49,7 +49,7 @@ const styles = StyleSheet.create<Styles>({
     width: '48%',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
+    borderRadius: scaleWidth(10),
     height: scaleHeight(40)
   },
   textButtonLogin: {

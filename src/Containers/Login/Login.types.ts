@@ -9,18 +9,10 @@ export type Styles = {
   form: ViewStyle,
   label: TextStyle,
   input: ViewStyle & TextStyle,
-  passwordWrapper: ViewStyle,
-  inputPassword: ViewStyle & TextStyle,
-  iconPassword: ViewStyle,
   errorText: TextStyle,
   footer: ViewStyle,
   button: ViewStyle,
   buttonText: TextStyle
-}
-
-export type LoginFormValues = {
-  email: string,
-  password: string
 }
 
 export type States = {
