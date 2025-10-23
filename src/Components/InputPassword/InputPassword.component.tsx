@@ -39,7 +39,7 @@ const InputPassword = <T extends LoginFormValues | RegisterFormValues>({
         />
       </TouchableOpacity>
     </View>
-    {formik.touched.password && formik.errors.password && (
+    {formik.touched[name] && formik.errors[name] && (
       <Text style={styles.errorText}>{formik.errors[name] as string}</Text>
     )}
   </>

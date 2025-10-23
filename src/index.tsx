@@ -1,7 +1,9 @@
 import React from 'react'
 import { View, StatusBar, Platform, StyleSheet } from 'react-native'
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context'
+import { Provider } from 'react-redux'
 
+import { store } from './Redux/Store'
 import Colors from './Assets/Colors'
 import Navigation from './Navigation'
 
@@ -22,9 +24,11 @@ const AppContent = () => {
 }
 
 const App = () => (
-  <SafeAreaProvider>
-    <AppContent />
-  </SafeAreaProvider>
+  <Provider store={store}>
+    <SafeAreaProvider>
+      <AppContent />
+    </SafeAreaProvider>
+  </Provider>
 )
 
 const styles = StyleSheet.create({
