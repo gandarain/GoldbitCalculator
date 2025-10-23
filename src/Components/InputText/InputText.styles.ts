@@ -21,7 +21,7 @@ const styles = StyleSheet.create<Styles>({
     borderRadius: scaleWidth(8),
     paddingHorizontal: scaleWidth(12),
     backgroundColor: Colors.WHITE,
-    fontSize: scaleFont(14),
+    fontSize: scaleFont(15),
     marginBottom: scaleHeight(8)
   },
   errorText: {

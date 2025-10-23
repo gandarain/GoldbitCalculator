@@ -1,4 +1,5 @@
 import { TextStyle, ViewStyle } from 'react-native'
+import type { Dispatch } from '../../Types'
 
 export type Styles = {
   contentContainerStyle: ViewStyle,
@@ -16,5 +17,6 @@ export type States = {
   showPassword: boolean,
   setShowPassword: (value: boolean) => void,
   showConfirmationPassword: boolean,
-  setShowConfirmationPassword: (value: boolean) => void
+  setShowConfirmationPassword: (value: boolean) => void,
+  dispatch: Dispatch
 }
