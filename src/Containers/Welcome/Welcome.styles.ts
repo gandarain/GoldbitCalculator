@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 import Colors from '../../Assets/Colors'
-import { scaleHeight, scaleWidth, scaleFont } from '../../Utils/Size';
+import { scaleHeight, scaleWidth, scaleFont } from '../../Utils/Size'
 
 import { Styles } from './Welcome.types'
 

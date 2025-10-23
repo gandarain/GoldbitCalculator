@@ -10,9 +10,11 @@ import type { States } from './Welcome.types'
 
 const renderDescription = () => (
   <View style={styles.containerDescription}>
-    <Image source={GoldBitCalculatorLogo} style={styles.imageBanner} resizeMode="stretch" />
+    <Image resizeMode="stretch" source={GoldBitCalculatorLogo} style={styles.imageBanner} />
     <Text style={styles.textTitle}>Selamat Datang</Text>
-    <Text style={styles.textSubtitle}>Gold Bit Calculator membantu anda untuk mengalokasi dana investasi ke Bitcoin dan Emas</Text>
+    <Text style={styles.textSubtitle}>
+      Gold Bit Calculator membantu anda untuk mengalokasi dana investasi ke Bitcoin dan Emas
+    </Text>
   </View>
 )
 

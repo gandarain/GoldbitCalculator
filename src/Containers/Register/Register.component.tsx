@@ -6,7 +6,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   KeyboardAvoidingView,
-  Platform,
+  Platform
 } from 'react-native'
 import { Formik } from 'formik'
 
@@ -28,49 +28,49 @@ import type { States } from './Register.types'
 
 const renderInputFullName = (formik: FormikFormRegister) => (
   <InputText
-    label='Nama Lengkap'
-    name='fullName'
-    placeholder='Masukkan nama lengkap anda'
-    keyboardType={undefined}
     autoCapitalize={undefined}
     formik={formik}
+    keyboardType={undefined}
+    label="Nama Lengkap"
+    name="fullName"
+    placeholder="Masukkan nama lengkap anda"
     onHandleBlur={onHandleBlur(formik, 'fullName')}
   />
 )
 
 const renderInputEmail = (formik: FormikFormRegister) => (
   <InputText
-    label='Email'
-    name='email'
-    placeholder='Masukkan email anda'
-    keyboardType="email-address"
     autoCapitalize="none"
     formik={formik}
+    keyboardType="email-address"
+    label="Email"
+    name="email"
+    placeholder="Masukkan email anda"
     onHandleBlur={onHandleBlur(formik, 'email')}
   />
 )
 
 const renderInputPassword = (states: States, formik: FormikFormRegister) => (
   <InputPassword
-    label='Password'
-    name='password'
-    placeholder='Masukkan password anda'
-    showPassword={states.showPassword}
     formik={formik}
-    onPressIconPassword={onPressIconPassword(states)}
+    label="Password"
+    name="password"
+    placeholder="Masukkan password anda"
+    showPassword={states.showPassword}
     onHandleBlur={onHandleBlur(formik, 'password')}
+    onPressIconPassword={onPressIconPassword(states)}
   />
 )
 
 const renderInputConfirmationPassword = (states: States, formik: FormikFormRegister) => (
   <InputPassword
-    label='Konfirmasi Password'
-    name='confirmationPassword'
-    placeholder='Masukkan konfirmasi password anda'
-    showPassword={states.showConfirmationPassword}
     formik={formik}
-    onPressIconPassword={onPressIconConfirmationPassword(states)}
+    label="Konfirmasi Password"
+    name="confirmationPassword"
+    placeholder="Masukkan konfirmasi password anda"
+    showPassword={states.showConfirmationPassword}
     onHandleBlur={onHandleBlur(formik, 'confirmationPassword')}
+    onPressIconPassword={onPressIconConfirmationPassword(states)}
   />
 )
 
@@ -86,7 +86,7 @@ const renderForm = (states: States) => (
     validationSchema={config.RegisterSchema}
     onSubmit={onSubmitForm(states)}
   >
-    {(formik) => (
+    {formik => (
       <View style={styles.content}>
         <View style={styles.form}>
           {renderInputFullName(formik)}
@@ -94,20 +94,14 @@ const renderForm = (states: States) => (
           {renderInputPassword(states, formik)}
           {renderInputConfirmationPassword(states, formik)}
         </View>
-        <View style={styles.footer}>
-          {renderButton(formik)}
-        </View>
+        <View style={styles.footer}>{renderButton(formik)}</View>
       </View>
     )}
   </Formik>
 )
 
 const renderImageBackground = () => (
-  <ImageBackground
-    source={HeaderBackground}
-    style={styles.imageBackground}
-    resizeMode="stretch"
-  >
+  <ImageBackground resizeMode="stretch" source={HeaderBackground} style={styles.imageBackground}>
     <Text style={styles.textTitle}>Masukkan data diri anda</Text>
   </ImageBackground>
 )
@@ -117,8 +111,8 @@ const Register = (): React.JSX.Element => {
 
   return (
     <KeyboardAvoidingView
-      style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      style={styles.container}
     >
       <ScrollView contentContainerStyle={styles.contentContainerStyle}>
         {renderImageBackground()}

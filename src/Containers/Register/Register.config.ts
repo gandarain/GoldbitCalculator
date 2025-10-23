@@ -5,9 +5,7 @@ const RegisterSchema = Yup.object().shape({
     .matches(/^[A-Za-z\s]+$/, 'Nama lengkap hanya boleh mengandung huruf')
     .min(3, 'Nama lengkap minimal 3 karakter')
     .required('Nama lengkap wajib diisi'),
-  email: Yup.string()
-    .email('Email tidak valid')
-    .required('Email wajib diisi'),
+  email: Yup.string().email('Email tidak valid').required('Email wajib diisi'),
   password: Yup.string()
     .min(8, 'Password minimal 8 karakter')
     .matches(/[A-Z]/, 'Password harus mengandung huruf besar')
@@ -17,7 +15,7 @@ const RegisterSchema = Yup.object().shape({
     .required('Password wajib diisi'),
   confirmationPassword: Yup.string()
     .oneOf([Yup.ref('password')], 'Konfirmasi password tidak cocok')
-    .required('Konfirmasi password wajib diisi'),
+    .required('Konfirmasi password wajib diisi')
 })
 
 const initialValues = {

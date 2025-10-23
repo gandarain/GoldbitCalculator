@@ -12,11 +12,13 @@ const AppContent = () => {
 
   return (
     <View style={styles.container}>
-      {Platform.OS === 'ios' && <View style={[styles.fakeStatusBar, { height: insets.top || 44 }]} />}
+      {Platform.OS === 'ios' && (
+        <View style={[styles.fakeStatusBar, { height: insets.top || 44 }]} />
+      )}
       <StatusBar
-        translucent={Platform.OS === 'android'}
         backgroundColor={Colors.BLUE}
         barStyle="light-content"
+        translucent={Platform.OS === 'android'}
       />
       <Navigation />
     </View>

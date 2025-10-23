@@ -1,9 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import type {
-  RegistrationState,
-  RegistrationPayload
-} from './Registration.reducers.types'
+import type { RegistrationState, RegistrationPayload } from './Registration.reducers.types'
 
 const initialState: RegistrationState = {
   fullName: '',

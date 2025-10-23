@@ -11,7 +11,7 @@ const styles = StyleSheet.create<Styles>({
   },
   contentContainerStyle: {
     flexGrow: 1,
-    backgroundColor: Colors.THIRD_YELLOW,
+    backgroundColor: Colors.THIRD_YELLOW
   },
   content: {
     flex: 1,

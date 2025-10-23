@@ -8,19 +8,25 @@ import styles from './InputText.styles'
 import type { Props } from './InputText.types'
 
 const InputText = <T extends LoginFormValues | RegisterFormValues>({
-  label, name, placeholder, keyboardType, autoCapitalize, formik, onHandleBlur
+  label,
+  name,
+  placeholder,
+  keyboardType,
+  autoCapitalize,
+  formik,
+  onHandleBlur
 }: Props<T>) => (
   <>
     <Text style={styles.label}>{label}</Text>
     <TextInput
-      style={styles.input}
+      autoCapitalize={autoCapitalize}
+      keyboardType={keyboardType}
       placeholder={placeholder}
       placeholderTextColor={Colors.SECOND_GREY}
-      keyboardType={keyboardType}
-      autoCapitalize={autoCapitalize}
+      style={styles.input}
       value={formik.values[name] as string}
-        onChangeText={formik.handleChange(name)}
       onBlur={onHandleBlur}
+      onChangeText={formik.handleChange(name)}
     />
     {formik.touched.email && formik.errors.email && (
       <Text style={styles.errorText}>{formik.errors[name] as string}</Text>

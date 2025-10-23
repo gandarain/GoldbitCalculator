@@ -10,7 +10,12 @@ import {
 } from 'react-native'
 
 import { useVerifyOtp, useResendOtp } from './useVerifyOtp'
-import { handleAddDigit, handleDeleteDigit, handleVerifyOtp, handleResendOtp } from './VerifyOtp.handlers'
+import {
+  handleAddDigit,
+  handleDeleteDigit,
+  handleVerifyOtp,
+  handleResendOtp
+} from './VerifyOtp.handlers'
 import { isComplete } from './VerifyOtp.utils'
 import config from './VerifyOtp.config'
 import styles from './VerifyOtp.styles'
@@ -19,53 +24,51 @@ import type { States } from './VerifyOtp.types'
 const renderInputs = ({ length, inputRefs, otp }: States) =>
   Array.from({ length }).map((_, index) => (
     <TextInput
+      editable={false}
+      // eslint-disable-next-line react/no-array-index-key
       key={index}
       ref={el => {
         inputRefs.current[index] = el!
       }}
-      value={otp[index]}
       style={styles.otpInput}
-      editable={false}
+      value={otp[index]}
     />
   ))
 
 const renderKeypad = ({ setOtp, otp }: States) => (
   <View style={styles.keypadContainer}>
-    {config.keypad.map(num => (
-      <TouchableOpacity
-        key={num}
-        style={styles.keypadButton}
-        onPress={handleAddDigit(num, otp, setOtp)}>
-        <Text style={styles.keypadText}>{num}</Text>
-      </TouchableOpacity>
+    {config.keypadRows.map((row, rowIndex) => (
+      <View key={rowIndex} style={[styles.keypadRow, row.length === 2 && styles.lastRow]}>
+        {row.map(num => (
+          <TouchableOpacity
+            key={num}
+            style={styles.keypadButton}
+            onPress={
+              num === '⌫' ? handleDeleteDigit(otp, setOtp) : handleAddDigit(num, otp, setOtp)
+            }
+          >
+            <Text style={styles.keypadText}>{num}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
     ))}
-    <TouchableOpacity
-      style={[styles.keypadButton, styles.deleteButton]}
-      onPress={handleDeleteDigit(otp, setOtp)}>
-      <Text style={styles.keypadText}>⌫</Text>
-    </TouchableOpacity>
   </View>
 )
 
 const renderButton = (states: States) => (
   <View style={styles.footer}>
     <TouchableOpacity
-      style={[
-        styles.verifyButton,
-        isComplete(states) ? styles.activeButton : {}
-      ]}
+      disabled={!isComplete(states)}
+      style={[styles.verifyButton, isComplete(states) ? styles.activeButton : {}]}
       onPress={handleVerifyOtp(states.otp)}
-      disabled={!isComplete(states)}>
+    >
       <Text style={styles.verifyText}>Verifikasi</Text>
     </TouchableOpacity>
     <View style={styles.resendContainer}>
       {states.timer > 0 ? (
-        <Text style={styles.timerText}>
-          Kirim ulang OTP dalam {states.timer}s
-        </Text>
+        <Text style={styles.timerText}>Kirim ulang OTP dalam {states.timer}s</Text>
       ) : (
-        <TouchableOpacity
-          onPress={handleResendOtp(states.setOtp, states.setTimer)}>
+        <TouchableOpacity onPress={handleResendOtp(states.setOtp, states.setTimer)}>
           <Text style={styles.resendText}>Kirim ulang OTP</Text>
         </TouchableOpacity>
       )}
@@ -80,13 +83,17 @@ const VerifyOtp = () => {
 
   return (
     <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    >
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
-        showsVerticalScrollIndicator={false}>
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.innerContainer}>
-          <Text style={styles.title}>OTP telah berhasil dikirimkan ke {states.registration.email}</Text>
+          <Text style={styles.title}>
+            OTP telah berhasil dikirimkan ke {states.registration.email}
+          </Text>
           <View style={styles.otpContainer}>{renderInputs(states)}</View>
           {renderKeypad(states)}
         </View>

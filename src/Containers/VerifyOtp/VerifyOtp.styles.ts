@@ -34,10 +34,10 @@ const styles = StyleSheet.create<Styles>({
   },
   otpInput: {
     width: scaleWidth(45),
-    height: scaleHeight(50),
+    height: scaleHeight(45),
     borderWidth: 1,
     borderColor: Colors.GREY,
-    borderRadius: scaleWidth(8),
+    borderRadius: scaleWidth(45),
     textAlign: 'center',
     fontSize: scaleFont(18),
     color: Colors.BLACK,
@@ -45,23 +45,28 @@ const styles = StyleSheet.create<Styles>({
   },
   keypadContainer: {
     width: '80%',
+    alignSelf: 'center',
+    marginBottom: scaleHeight(16)
+  },
+  keypadRow: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    marginBottom: scaleHeight(10)
+  },
+  lastRow: {
     justifyContent: 'center',
-    marginBottom: scaleHeight(20)
+    columnGap: scaleWidth(20)
   },
   keypadButton: {
     width: '30%',
-    margin: '1.5%',
     aspectRatio: 1,
-    backgroundColor: Colors.SECOND_BLUE,
-    borderRadius: scaleWidth(12),
+    borderRadius: scaleWidth(10),
     justifyContent: 'center',
     alignItems: 'center'
   },
   keypadText: {
-    color: Colors.WHITE,
-    fontSize: scaleFont(20),
+    color: Colors.BLACK,
+    fontSize: scaleFont(30),
     fontFamily: 'Poppins-SemiBold'
   },
   deleteButton: {
@@ -69,7 +74,7 @@ const styles = StyleSheet.create<Styles>({
   },
   footer: {
     paddingHorizontal: scaleWidth(20),
-    paddingBottom: scaleHeight(20)
+    paddingBottom: scaleHeight(10)
   },
   verifyButton: {
     width: '100%',

@@ -28,7 +28,7 @@ const styles = StyleSheet.create<Styles>({
     paddingRight: scaleWidth(40),
     backgroundColor: Colors.WHITE,
     fontSize: scaleFont(15),
-    marginBottom: 0,
+    marginBottom: 0
   },
   iconPassword: {
     position: 'absolute',
@@ -38,7 +38,7 @@ const styles = StyleSheet.create<Styles>({
     zIndex: 2,
     justifyContent: 'center',
     alignItems: 'center',
-    height: scaleHeight(18),
+    height: scaleHeight(18)
   },
   errorText: {
     color: Colors.RED,
