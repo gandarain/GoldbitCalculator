@@ -1,6 +1,7 @@
 import type { FormikFormRegister, RegisterFormValues } from '../../Types'
 
 import { setRegistration } from '../../Redux/Reducers/Registration.reducers'
+import Routes from '../../Navigation/Routes'
 
 import type { States } from './Register.types'
 
@@ -9,8 +10,8 @@ export const onHandleBlur = ({ handleBlur }: FormikFormRegister, input: string) 
 }
 
 export const onSubmitForm = (states: States) => (values: RegisterFormValues) => {
-  console.log('Login submit:', values)
   states.dispatch(setRegistration(values))
+  states.navigation.navigate(Routes.VerifyOtp)
 }
 
 export const onPressButtonSubmit = ({ handleSubmit }: FormikFormRegister) => () => {

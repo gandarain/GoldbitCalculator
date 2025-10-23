@@ -76,7 +76,7 @@ const renderInputConfirmationPassword = (states: States, formik: FormikFormRegis
 
 const renderButton = (formik: FormikFormRegister) => (
   <TouchableOpacity style={styles.button} onPress={onPressButtonSubmit(formik)}>
-    <Text style={styles.buttonText}>Login</Text>
+    <Text style={styles.buttonText}>Register</Text>
   </TouchableOpacity>
 )
 
