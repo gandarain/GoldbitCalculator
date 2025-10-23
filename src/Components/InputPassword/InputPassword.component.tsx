@@ -11,36 +11,51 @@ import config from './InputPassword.config'
 import styles from './InputPassword.styles'
 import type { Props } from './InputPassword.types'
 
-const InputPassword = <T extends LoginFormValues | RegisterFormValues>({
-  label, name, placeholder, showPassword, formik, onPressIconPassword, onHandleBlur
+const renderTextInputPassword = <T extends LoginFormValues | RegisterFormValues>({
+  placeholder,
+  showPassword,
+  formik,
+  name,
+  onHandleBlur
 }: Props<T>) => (
+  <TextInput
+    placeholder={placeholder}
+    placeholderTextColor={Colors.SECOND_GREY}
+    secureTextEntry={!showPassword}
+    style={styles.inputPassword}
+    value={formik.values[name] as string}
+    onBlur={onHandleBlur}
+    onChangeText={formik.handleChange(name)}
+  />
+)
+
+const renderButtonPassword = <T extends LoginFormValues | RegisterFormValues>({
+  showPassword,
+  onPressIconPassword
+}: Props<T>) => (
+  <TouchableOpacity
+    activeOpacity={0.7}
+    hitSlop={config.hitSlopIconPassword}
+    style={styles.iconPassword}
+    onPress={onPressIconPassword}
+  >
+    <MaterialIcons
+      color={Colors.GREY}
+      name={showPassword ? 'eye-outline' : 'eye-off'}
+      size={scaleSize(18)}
+    />
+  </TouchableOpacity>
+)
+
+const InputPassword = <T extends LoginFormValues | RegisterFormValues>(props: Props<T>) => (
   <>
-    <Text style={styles.label}>{label}</Text>
+    <Text style={styles.label}>{props.label}</Text>
     <View style={styles.passwordWrapper}>
-      <TextInput
-        style={styles.inputPassword}
-        placeholder={placeholder}
-        placeholderTextColor={Colors.SECOND_GREY}
-        secureTextEntry={!showPassword}
-        value={formik.values[name] as string}
-        onChangeText={formik.handleChange(name)}
-        onBlur={onHandleBlur}
-      />
-      <TouchableOpacity
-        style={styles.iconPassword}
-        onPress={onPressIconPassword}
-        hitSlop={config.hitSlopIconPassword}
-        activeOpacity={0.7}
-      >
-        <MaterialIcons
-          name={showPassword ? 'eye-outline' : 'eye-off'}
-          size={scaleSize(18)}
-          color={Colors.GREY}
-        />
-      </TouchableOpacity>
+      {renderTextInputPassword(props)}
+      {renderButtonPassword(props)}
     </View>
-    {formik.touched[name] && formik.errors[name] && (
-      <Text style={styles.errorText}>{formik.errors[name] as string}</Text>
+    {props.formik.touched[props.name] && props.formik.errors[props.name] && (
+      <Text style={styles.errorText}>{props.formik.errors[props.name] as string}</Text>
     )}
   </>
 )

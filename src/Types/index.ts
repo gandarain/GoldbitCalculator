@@ -8,14 +8,14 @@ import type { AppDispatch, RootState } from '../Redux/Store'
 export type UseNavigation = NavigationProp<Params>
 
 export type LoginFormValues = {
-  email: string,
+  email: string
   password: string
 }
 
 export type RegisterFormValues = {
-  fullName: string,
-  email: string,
-  password: string,
+  fullName: string
+  email: string
+  password: string
   confirmationPassword: string
 }
 

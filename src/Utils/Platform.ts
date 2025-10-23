@@ -24,14 +24,11 @@ export const isIphoneX = (): boolean => isIOS() && getRatio() >= 2.0
 
 export const isIphoneLowRatio = (): boolean => isIOS() && getRatio() <= 1.775
 
-export const isAndroidVeryHighRatio = (): boolean =>
-  isAndroid() && getRatio() >= 2.1
+export const isAndroidVeryHighRatio = (): boolean => isAndroid() && getRatio() >= 2.1
 
-export const isAndroidHighRatio = (): boolean =>
-  isAndroid() && getRatio() >= 1.9
+export const isAndroidHighRatio = (): boolean => isAndroid() && getRatio() >= 1.9
 
-export const isAndroidLowRatio = (): boolean =>
-  isAndroid() && getRatio() <= 1.7
+export const isAndroidLowRatio = (): boolean => isAndroid() && getRatio() <= 1.7
 
 export const isAndroidTablet = (): boolean => isAndroid() && getRatio() <= 1.6
 

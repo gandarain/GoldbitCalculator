@@ -16,8 +16,7 @@ const screenSize = {
   current: Math.sqrt(height * height + width * width)
 }
 
-export const scaleSize = (size: number): number =>
-  (size / screenSize.base) * screenSize.current
+export const scaleSize = (size: number): number => (size / screenSize.base) * screenSize.current
 
 export const scaleWidth = (w: number): number => (w / base.width) * width
 
@@ -29,14 +28,12 @@ export const scaleFont = (fontSize: number): number =>
 export const scaleByDigit = (
   value: number,
   digitBreakpoint: number,
-  defaultSize: number,
+  defaultSize: number
 ): number => {
   const digit = Math.ceil(Math.log10(value))
   const isDefaultFont = value === 0 || digit < digitBreakpoint
 
-  return isDefaultFont
-    ? defaultSize
-    : (defaultSize * (digit - (digit - digitBreakpoint))) / digit
+  return isDefaultFont ? defaultSize : (defaultSize * (digit - (digit - digitBreakpoint))) / digit
 }
 
 export default {
