@@ -22,3 +22,8 @@ export const onPressButtonSubmit =
 export const onPressIconPassword = (states: States) => () => {
   states.setShowPassword(!states.showPassword)
 }
+
+export const onPressForgetPassword = () => () => {
+  // eslint-disable-next-line no-console
+  console.log('Forget password')
+}

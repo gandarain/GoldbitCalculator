@@ -18,7 +18,8 @@ import {
   onHandleBlur,
   onSubmitForm,
   onPressButtonSubmit,
-  onPressIconPassword
+  onPressIconPassword,
+  onPressForgetPassword
 } from './Login.handlers'
 import { useGetStateAndSetters } from './useLogin'
 import config from './Login.config'
@@ -49,6 +50,14 @@ const renderInputPassword = (states: States, formik: FormikFormLogin) => (
   />
 )
 
+const renderForgetPassword = () => (
+  <View style={styles.forgetPasswordContainer}>
+    <TouchableOpacity onPress={onPressForgetPassword()}>
+      <Text style={styles.forgetPasswordText}>Lupa password?</Text>
+    </TouchableOpacity>
+  </View>
+)
+
 const renderButton = (formik: FormikFormLogin) => (
   <TouchableOpacity style={styles.button} onPress={onPressButtonSubmit(formik)}>
     <Text style={styles.buttonText}>Login</Text>
@@ -66,6 +75,7 @@ const renderForm = (states: States) => (
         <View style={styles.form}>
           {renderInputEmail(formik)}
           {renderInputPassword(states, formik)}
+          {renderForgetPassword()}
         </View>
         <View style={styles.footer}>{renderButton(formik)}</View>
       </View>
