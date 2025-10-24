@@ -1,6 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import type { RegistrationState, RegistrationPayload } from './Registration.reducers.types'
+import type {
+  RegistrationState,
+  RegistrationPayload,
+  RegistrationEmailPayload
+} from './Registration.reducers.types'
 
 const initialState: RegistrationState = {
   fullName: '',
@@ -18,6 +22,9 @@ const registrationSlice = createSlice({
       state.email = action.payload.email
       state.password = action.payload.password
       state.confirmationPassword = action.payload.confirmationPassword
+    },
+    setEmailRegistration(state, action: PayloadAction<RegistrationEmailPayload>) {
+      state.email = action.payload.email
     }
   }
 })

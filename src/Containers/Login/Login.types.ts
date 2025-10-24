@@ -10,6 +10,8 @@ export type Styles = {
   footer: ViewStyle
   button: ViewStyle
   buttonText: TextStyle
+  forgetPasswordContainer: ViewStyle
+  forgetPasswordText: TextStyle
 }
 
 export type States = {

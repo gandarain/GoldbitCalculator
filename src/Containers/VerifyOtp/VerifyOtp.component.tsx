@@ -38,6 +38,7 @@ const renderInputs = ({ length, inputRefs, otp }: States) =>
 const renderKeypad = ({ setOtp, otp }: States) => (
   <View style={styles.keypadContainer}>
     {config.keypadRows.map((row, rowIndex) => (
+      // eslint-disable-next-line react/no-array-index-key
       <View key={rowIndex} style={[styles.keypadRow, row.length === 2 && styles.lastRow]}>
         {row.map(num => (
           <TouchableOpacity

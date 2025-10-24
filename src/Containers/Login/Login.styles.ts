@@ -51,6 +51,16 @@ const styles = StyleSheet.create<Styles>({
     fontSize: scaleFont(18),
     fontFamily: 'Poppins-Bold',
     color: Colors.WHITE
+  },
+  forgetPasswordContainer: {
+    marginTop: scaleHeight(8),
+    alignItems: 'center'
+  },
+  forgetPasswordText: {
+    fontSize: scaleFont(14),
+    fontFamily: 'Poppins-Medium',
+    color: Colors.SECOND_BLUE,
+    textDecorationLine: 'underline'
   }
 })
 

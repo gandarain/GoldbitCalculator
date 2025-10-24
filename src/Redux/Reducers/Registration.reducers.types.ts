@@ -11,3 +11,7 @@ export type RegistrationPayload = {
   password: string
   confirmationPassword: string
 }
+
+export type RegistrationEmailPayload = {
+  email: string
+}
