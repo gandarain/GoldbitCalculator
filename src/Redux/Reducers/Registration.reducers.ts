@@ -24,10 +24,11 @@ const registrationSlice = createSlice({
       state.confirmationPassword = action.payload.confirmationPassword
     },
     setEmailRegistration(state, action: PayloadAction<RegistrationEmailPayload>) {
-      state.email = action.payload.email
+      state.email = action.payload
     }
   }
 })
 
-export const { setRegistration } = registrationSlice.actions
+export const { setRegistration, setEmailRegistration } = registrationSlice.actions
+
 export default registrationSlice.reducer
