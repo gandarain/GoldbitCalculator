@@ -12,6 +12,8 @@ export type LoginFormValues = {
   password: string
 }
 
+export type FormikFormLogin = FormikProps<LoginFormValues>
+
 export type RegisterFormValues = {
   fullName: string
   email: string
@@ -19,10 +21,14 @@ export type RegisterFormValues = {
   confirmationPassword: string
 }
 
-export type FormikFormLogin = FormikProps<LoginFormValues>
-
 export type FormikFormRegister = FormikProps<RegisterFormValues>
 
 export type Dispatch = AppDispatch
 
 export type ReduxState = RootState
+
+export type InputEmailFormValues = {
+  email: string
+}
+
+export type FormikFormInputEmail = FormikProps<InputEmailFormValues>

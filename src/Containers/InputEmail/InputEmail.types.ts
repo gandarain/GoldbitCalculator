@@ -1,7 +1,5 @@
 import { TextStyle, ViewStyle } from 'react-native'
 
-import type { UseNavigation } from '../../Types'
-
 export type Styles = {
   contentContainerStyle: ViewStyle
   container: ViewStyle
@@ -14,10 +12,4 @@ export type Styles = {
   buttonText: TextStyle
   forgetPasswordContainer: ViewStyle
   forgetPasswordText: TextStyle
-}
-
-export type States = {
-  showPassword: boolean
-  setShowPassword: (value: boolean) => void
-  navigation: UseNavigation
 }
