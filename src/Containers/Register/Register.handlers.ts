@@ -1,6 +1,6 @@
 import type { FormikFormRegister, RegisterFormValues } from '../../Types'
 
-import { setRegistration } from '../../Redux/Reducers/Registration.reducers'
+import { setRegistration } from '../../Redux/Reducers/RegistrationReducers/Registration.reducers'
 import Routes from '../../Navigation/Routes'
 
 import type { States } from './Register.types'
