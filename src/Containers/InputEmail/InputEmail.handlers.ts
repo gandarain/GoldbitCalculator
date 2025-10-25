@@ -1,4 +1,8 @@
+import { setEmailRegistration } from '../../Redux/Reducers/Registration.reducers'
+import Routes from '../../Navigation/Routes'
 import type { FormikFormInputEmail, InputEmailFormValues } from '../../Types'
+
+import type { States } from './InputEmail.types'
 
 export const onHandleBlur =
   ({ handleBlur }: FormikFormInputEmail, input: string) =>
@@ -6,9 +10,9 @@ export const onHandleBlur =
     handleBlur(input)
   }
 
-export const onSubmitForm = () => (values: InputEmailFormValues) => {
-  // eslint-disable-next-line no-console
-  console.log('Login submit:', values)
+export const onSubmitForm = (states: States) => (values: InputEmailFormValues) => {
+  states.dispatch(setEmailRegistration(values.email))
+  states.navigation.navigate(Routes.VerifyOtp)
 }
 
 export const onPressButtonSubmit =

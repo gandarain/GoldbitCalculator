@@ -15,8 +15,10 @@ import { InputText } from '../../Components'
 import type { FormikFormInputEmail } from '../../Types'
 
 import { onHandleBlur, onSubmitForm, onPressButtonSubmit } from './InputEmail.handlers'
+import { useGetStateAndSetters } from './useInputEmail'
 import config from './InputEmail.config'
 import styles from './InputEmail.styles'
+import type { States } from './InputEmail.types'
 
 const renderInputEmail = (formik: FormikFormInputEmail) => (
   <InputText
@@ -36,11 +38,11 @@ const renderButton = (formik: FormikFormInputEmail) => (
   </TouchableOpacity>
 )
 
-const renderForm = () => (
+const renderForm = (states: States) => (
   <Formik
     initialValues={config.initialValues}
     validationSchema={config.LoginSchema}
-    onSubmit={onSubmitForm()}
+    onSubmit={onSubmitForm(states)}
   >
     {formik => (
       <View style={styles.content}>
@@ -59,16 +61,20 @@ const renderImageBackground = () => (
   </ImageBackground>
 )
 
-const InputEmail = (): React.JSX.Element => (
-  <KeyboardAvoidingView
-    behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-    style={styles.container}
-  >
-    <ScrollView contentContainerStyle={styles.contentContainerStyle}>
-      {renderImageBackground()}
-      {renderForm()}
-    </ScrollView>
-  </KeyboardAvoidingView>
-)
+const InputEmail = (): React.JSX.Element => {
+  const states = useGetStateAndSetters()
+
+  return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      style={styles.container}
+    >
+      <ScrollView contentContainerStyle={styles.contentContainerStyle}>
+        {renderImageBackground()}
+        {renderForm(states)}
+      </ScrollView>
+    </KeyboardAvoidingView>
+  )
+}
 
 export default InputEmail
