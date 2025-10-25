@@ -1,4 +1,4 @@
-import { setEmailRegistration } from '../../Redux/Reducers/Registration.reducers'
+import { setEmailRegistration } from '../../Redux/Reducers/RegistrationReducers/Registration.reducers'
 import Routes from '../../Navigation/Routes'
 import type { FormikFormInputEmail, InputEmailFormValues } from '../../Types'
 
