@@ -1,7 +1,7 @@
 import { TextStyle, ViewStyle, KeyboardTypeOptions } from 'react-native'
 import type { FormikProps } from 'formik'
 
-import type { LoginFormValues, RegisterFormValues } from '../../Types'
+import type { LoginFormValues, RegisterFormValues, InputEmailFormValues } from '../../Types'
 
 export type Styles = {
   label: TextStyle
@@ -9,7 +9,7 @@ export type Styles = {
   errorText: TextStyle
 }
 
-export type Props<T extends LoginFormValues | RegisterFormValues> = {
+export type Props<T extends LoginFormValues | RegisterFormValues | InputEmailFormValues> = {
   label: string
   name: keyof T
   placeholder: string

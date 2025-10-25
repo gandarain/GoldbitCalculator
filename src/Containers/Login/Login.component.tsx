@@ -50,9 +50,9 @@ const renderInputPassword = (states: States, formik: FormikFormLogin) => (
   />
 )
 
-const renderForgetPassword = () => (
+const renderForgetPassword = (states: States) => (
   <View style={styles.forgetPasswordContainer}>
-    <TouchableOpacity onPress={onPressForgetPassword()}>
+    <TouchableOpacity onPress={onPressForgetPassword(states)}>
       <Text style={styles.forgetPasswordText}>Lupa password?</Text>
     </TouchableOpacity>
   </View>
@@ -60,7 +60,7 @@ const renderForgetPassword = () => (
 
 const renderButton = (formik: FormikFormLogin) => (
   <TouchableOpacity style={styles.button} onPress={onPressButtonSubmit(formik)}>
-    <Text style={styles.buttonText}>Login</Text>
+    <Text style={styles.buttonText}>Lanjut</Text>
   </TouchableOpacity>
 )
 
@@ -75,7 +75,7 @@ const renderForm = (states: States) => (
         <View style={styles.form}>
           {renderInputEmail(formik)}
           {renderInputPassword(states, formik)}
-          {renderForgetPassword()}
+          {renderForgetPassword(states)}
         </View>
         <View style={styles.footer}>{renderButton(formik)}</View>
       </View>
