@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import type { SettingState, SetLanguagePayload } from './SettingReducers.types'
+import type { SettingState, SetLanguagePayload } from './Setting.reducers.types'
 
 const initialState: SettingState = {
   language: ''

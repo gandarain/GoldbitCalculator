@@ -56,7 +56,7 @@ const renderForm = (states: States) => (
 const renderImageBackground = () => (
   <ImageBackground resizeMode="stretch" source={HeaderBackground} style={styles.imageBackground}>
     <Text style={styles.textTitle}>
-      Pastikan email aktif karena OTP akan dikirimkan ke email anda
+      Pastikan email anda aktif karena OTP akan dikirimkan ke email anda
     </Text>
   </ImageBackground>
 )
