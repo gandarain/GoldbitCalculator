@@ -1,7 +1,7 @@
 import { TextStyle, ViewStyle, TextInput } from 'react-native'
 import type { RefObject, Dispatch, SetStateAction } from 'react'
 
-import type { RegistrationState } from '../../Redux/Reducers/Registration.reducers.types'
+import type { RegistrationState } from '../../Redux/Reducers/RegistrationReducers/Registration.reducers.types'
 
 export type Styles = {
   container: ViewStyle

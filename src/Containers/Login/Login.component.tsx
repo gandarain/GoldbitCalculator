@@ -68,7 +68,7 @@ const renderForm = (states: States) => (
   <Formik
     initialValues={config.initialValues}
     validationSchema={config.LoginSchema}
-    onSubmit={onSubmitForm()}
+    onSubmit={onSubmitForm(states)}
   >
     {formik => (
       <View style={styles.content}>

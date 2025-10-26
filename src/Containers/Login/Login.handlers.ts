@@ -9,9 +9,10 @@ export const onHandleBlur =
     handleBlur(input)
   }
 
-export const onSubmitForm = () => (values: LoginFormValues) => {
+export const onSubmitForm = (states: States) => (values: LoginFormValues) => {
   // eslint-disable-next-line no-console
   console.log('Login submit:', values)
+  states.navigation.navigate(Routes.MainTab)
 }
 
 export const onPressButtonSubmit =

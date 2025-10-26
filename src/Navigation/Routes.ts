@@ -3,7 +3,8 @@ const Routes = {
   Login: 'Login',
   Register: 'Register',
   VerifyOtp: 'VerifyOtp',
-  InputEmail: 'InputEmail'
+  InputEmail: 'InputEmail',
+  MainTab: 'MainTab'
 } as const
 
 export default Routes
