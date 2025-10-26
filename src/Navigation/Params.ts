@@ -6,6 +6,7 @@ type Params = {
   [Routes.Register]: undefined
   [Routes.VerifyOtp]: undefined
   [Routes.InputEmail]: undefined
+  [Routes.MainTab]: undefined
 }
 
 export default Params

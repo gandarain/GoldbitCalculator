@@ -8,7 +8,7 @@ import Colors from '../Assets/Colors'
 import Routes from './Routes'
 import Params from './Params'
 
-import { Login, Welcome, Register, VerifyOtp, InputEmail } from '../Containers'
+import { Login, Welcome, Register, VerifyOtp, InputEmail, MainTab } from '../Containers'
 
 export const headerOptions = (title?: string): NativeStackNavigationOptions => ({
   headerStyle: {
@@ -40,6 +40,13 @@ const Navigator = () => (
       component={InputEmail}
       name={Routes.InputEmail}
       options={headerOptions('Email')}
+    />
+    <Stack.Screen
+      component={MainTab}
+      name={Routes.MainTab}
+      options={{
+        headerShown: false
+      }}
     />
   </Stack.Navigator>
 )
