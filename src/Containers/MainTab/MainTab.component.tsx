@@ -2,12 +2,15 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import MaterialIcons from '@react-native-vector-icons/material-design-icons'
 
+import Colors from '../../Assets/Colors'
 import ProfileScreen from '../Profile'
+
+import styles from './MainTab.styles'
 
 const Tab = createBottomTabNavigator()
 
 const renderTabBarIcon = (color: string, size: number) => (
-  <MaterialIcons color={color} name="eye-outline" size={size} />
+  <MaterialIcons color={color} name="account" size={size} />
 )
 
 const TabNavigator = () => {
@@ -15,13 +18,10 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: '#007bff',
-        tabBarInactiveTintColor: '#aaa',
-        tabBarStyle: {
-          backgroundColor: '#fff',
-          borderTopWidth: 0.5,
-          borderTopColor: '#ddd'
-        }
+        tabBarActiveTintColor: Colors.BLUE,
+        tabBarInactiveTintColor: Colors.GREY,
+        tabBarStyle: styles.tabBarStyle,
+        tabBarLabelStyle: styles.tabBarLabelStyle
       }}
     >
       <Tab.Screen

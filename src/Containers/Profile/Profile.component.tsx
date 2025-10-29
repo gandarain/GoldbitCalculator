@@ -1,12 +1,16 @@
 import React from 'react'
 import { ScrollView, Text, ImageBackground, KeyboardAvoidingView, Platform } from 'react-native'
 
-import HeaderBackground from '../../Assets/Images/HeaderBackground.png'
+import HeaderBackgroundSecond from '../../Assets/Images/HeaderBackgroundSecond.png'
 
 import styles from './Profile.styles'
 
 const renderImageBackground = () => (
-  <ImageBackground resizeMode="stretch" source={HeaderBackground} style={styles.imageBackground}>
+  <ImageBackground
+    resizeMode="stretch"
+    source={HeaderBackgroundSecond}
+    style={styles.imageBackground}
+  >
     <Text style={styles.textTitle}>Profile</Text>
   </ImageBackground>
 )
