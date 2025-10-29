@@ -5,6 +5,7 @@ const Colors = {
   WHITE: '#FFFFFF',
   GREY: '#B0B0B0',
   SECOND_GREY: '#AAAAAA',
+  THIRD_GREY: '#dddddd',
   YELLOW: '#FFD700',
   SECOND_YELLOW: '#D4AF37',
   THIRD_YELLOW: '#FCF9EA',

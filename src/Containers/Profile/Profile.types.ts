@@ -7,6 +7,12 @@ export type Styles = {
   container: ViewStyle
   imageBackground: ViewStyle
   textTitle: TextStyle
+  accountContainer: ViewStyle
+  textTitleContent: TextStyle
+  textTitleSubContent: TextStyle
+  emailContainer: ViewStyle
+  emailContent: ViewStyle
+  textDescriptionContent: TextStyle
 }
 
 export type States = {
