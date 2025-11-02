@@ -3,6 +3,7 @@ import type { NavigationProp } from '@react-navigation/native'
 import type { FormikProps } from 'formik'
 
 import Params from '../Navigation/Params'
+import SnackbarConstants from '../Constants/Snackbar'
 import type { AppDispatch, RootState } from '../Redux/Store'
 
 export type UseNavigation = NavigationProp<Params>
@@ -32,3 +33,5 @@ export type InputEmailFormValues = {
 }
 
 export type FormikFormInputEmail = FormikProps<InputEmailFormValues>
+
+export type SnackbarType = (typeof SnackbarConstants.TYPE)[keyof typeof SnackbarConstants.TYPE]

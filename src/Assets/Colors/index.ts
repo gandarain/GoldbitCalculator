@@ -12,7 +12,8 @@ const Colors = {
   BLUE: '#132440',
   SECOND_BLUE: '#3B9797',
   RED: '#EB4646',
-  SECOND_RED: '#90323D'
+  SECOND_RED: '#90323D',
+  GREEN: '#50C878'
 }
 
 export default Colors

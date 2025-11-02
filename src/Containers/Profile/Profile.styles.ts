@@ -7,7 +7,8 @@ import { Styles } from './Profile.types'
 
 const styles = StyleSheet.create<Styles>({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: Colors.THIRD_YELLOW
   },
   contentContainerStyle: {
     flexGrow: 1,

@@ -11,6 +11,7 @@ const useGetStateAndSetters = (): States => {
   const navigation = useNavigation<UseNavigation>()
   const [showPassword, setShowPassword] = React.useState(false)
   const [showConfirmationPassword, setShowConfirmationPassword] = React.useState(false)
+  const [showLoadingMask, setShowLoadingMask] = React.useState(false)
 
   return {
     showPassword,
@@ -18,7 +19,9 @@ const useGetStateAndSetters = (): States => {
     showConfirmationPassword,
     setShowConfirmationPassword,
     dispatch,
-    navigation
+    navigation,
+    showLoadingMask,
+    setShowLoadingMask
   }
 }
 
