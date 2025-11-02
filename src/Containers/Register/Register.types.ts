@@ -21,4 +21,6 @@ export type States = {
   setShowPassword: (value: boolean) => void
   showConfirmationPassword: boolean
   setShowConfirmationPassword: (value: boolean) => void
+  showLoadingMask: boolean
+  setShowLoadingMask: (value: boolean) => void
 }
