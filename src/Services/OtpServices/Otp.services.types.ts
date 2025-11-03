@@ -11,3 +11,14 @@ export type RequestOtpResponse = {
   message: string
   error?: string
 }
+
+export type VerifyOtpBody = {
+  email: string
+  type: OtpType
+  otp: string
+}
+
+export type VerifyOtpResponse = {
+  message: string
+  error?: string
+}
