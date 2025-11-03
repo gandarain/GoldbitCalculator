@@ -37,4 +37,6 @@ export type States = {
   registration: RegistrationState
   timer: number
   setTimer: Dispatch<SetStateAction<number>>
+  showLoadingMask: boolean
+  setShowLoadingMask: (value: boolean) => void
 }

@@ -12,6 +12,7 @@ const useVerifyOtp = (config: UseOtpConfig = {}): States => {
   const inputRefs = useRef<TextInput[]>([])
   const registration = useSelector((state: ReduxState) => state.registration)
   const [timer, setTimer] = useState(60)
+  const [showLoadingMask, setShowLoadingMask] = useState(false)
 
   return {
     otp,
@@ -20,7 +21,9 @@ const useVerifyOtp = (config: UseOtpConfig = {}): States => {
     length,
     registration,
     timer,
-    setTimer
+    setTimer,
+    showLoadingMask,
+    setShowLoadingMask
   }
 }
 

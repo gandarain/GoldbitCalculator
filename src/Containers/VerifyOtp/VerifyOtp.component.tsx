@@ -9,6 +9,8 @@ import {
   Platform
 } from 'react-native'
 
+import LoadingMask from '../../Components/LoadingMask'
+
 import { useVerifyOtp, useResendOtp } from './useVerifyOtp'
 import {
   handleAddDigit,
@@ -61,7 +63,7 @@ const renderButton = (states: States) => (
     <TouchableOpacity
       disabled={!isComplete(states)}
       style={[styles.verifyButton, isComplete(states) ? styles.activeButton : {}]}
-      onPress={handleVerifyOtp(states.otp)}
+      onPress={handleVerifyOtp(states)}
     >
       <Text style={styles.verifyText}>Verifikasi</Text>
     </TouchableOpacity>
@@ -83,24 +85,27 @@ const VerifyOtp = () => {
   useResendOtp(states)
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={styles.container}
-    >
-      <ScrollView
-        contentContainerStyle={styles.scrollContainer}
-        showsVerticalScrollIndicator={false}
+    <>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        style={styles.container}
       >
-        <View style={styles.innerContainer}>
-          <Text style={styles.title}>
-            OTP telah berhasil dikirimkan ke {states.registration.email}
-          </Text>
-          <View style={styles.otpContainer}>{renderInputs(states)}</View>
-          {renderKeypad(states)}
-        </View>
-      </ScrollView>
-      {renderButton(states)}
-    </KeyboardAvoidingView>
+        <ScrollView
+          contentContainerStyle={styles.scrollContainer}
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={styles.innerContainer}>
+            <Text style={styles.title}>
+              OTP telah berhasil dikirimkan ke {states.registration.email}
+            </Text>
+            <View style={styles.otpContainer}>{renderInputs(states)}</View>
+            {renderKeypad(states)}
+          </View>
+        </ScrollView>
+        {renderButton(states)}
+      </KeyboardAvoidingView>
+      <LoadingMask visible={states.showLoadingMask} />
+    </>
   )
 }
 

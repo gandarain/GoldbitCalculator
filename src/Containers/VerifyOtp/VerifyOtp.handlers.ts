@@ -1,6 +1,19 @@
 import type { Dispatch, SetStateAction } from 'react'
+import { AxiosError } from 'axios'
+
+import { verifyOtp } from '../../Services/OtpServices/Otp.services'
+import { Otp, Snackbar } from '../../Constants'
+import { showSnackBar } from '../../Utils/Snackbar'
 
 import defaultOtpLength from './VerifyOtp.config'
+import type { States } from './VerifyOtp.types'
+
+const {
+  TYPE: { REGISTER }
+} = Otp
+const {
+  TYPE: { SUCCESS, FAILED }
+} = Snackbar
 
 export const handleAddDigit =
   (digit: string, otp: string[], setOtp: Dispatch<SetStateAction<string[]>>) => () => {
@@ -30,12 +43,28 @@ export const handleDeleteDigit =
     }
   }
 
-export const handleVerifyOtp = (otp: string[], onVerify?: (code: string) => void) => () => {
-  const code = otp.join('')
+export const handleVerifyOtp = (states: States) => async () => {
+  const code = states.otp.join('')
 
-  if (otp.includes('')) return
+  if (states.otp.includes('')) return
 
-  onVerify?.(code)
+  states.setShowLoadingMask(true)
+
+  const verifyOtpBody = {
+    email: states.registration.email,
+    type: REGISTER,
+    otp: code
+  }
+
+  try {
+    await verifyOtp(verifyOtpBody)
+
+    showSnackBar('OTP berhasil dikirim ke email anda.', SUCCESS)
+    states.setShowLoadingMask(false)
+  } catch (error) {
+    showSnackBar('', FAILED, error as AxiosError<{ message?: string }>)
+    states.setShowLoadingMask(false)
+  }
 }
 
 export const handleResendOtp =
