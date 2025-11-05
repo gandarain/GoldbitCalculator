@@ -1,6 +1,6 @@
 import { TextStyle, ViewStyle } from 'react-native'
 
-import type { UseNavigation } from '../../Types'
+import type { UseNavigation, DispatchRedux } from '../../Types'
 
 export type Styles = {
   contentContainerStyle: ViewStyle
@@ -20,4 +20,7 @@ export type States = {
   showPassword: boolean
   setShowPassword: (value: boolean) => void
   navigation: UseNavigation
+  dispatch: DispatchRedux
+  showLoadingMask: boolean
+  setShowLoadingMask: (value: boolean) => void
 }
