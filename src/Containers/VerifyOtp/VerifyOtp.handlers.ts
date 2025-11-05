@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react'
-import { AxiosError } from 'axios'
+import type { AxiosError } from 'axios'
 
 import { OtpServices, AuthenticationServices } from '../../Services'
 import { Otp, Snackbar } from '../../Constants'
@@ -74,12 +74,12 @@ export const handleVerifyOtp = (states: States) => async () => {
     const registerResponse = await register(registerBody)
 
     showSnackBar('Register berhasil.', SUCCESS)
-    states.setShowLoadingMask(false)
     states.dispatch(setLoginWithToken({ isLogin: true, token: registerResponse?.token }))
     states.navigation.reset({
       index: 0,
       routes: [{ name: Routes.MainTab }]
     })
+    states.setShowLoadingMask(false)
   } catch (error) {
     showSnackBar('', FAILED, error as AxiosError<{ message?: string }>)
     states.setShowLoadingMask(false)

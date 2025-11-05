@@ -11,7 +11,7 @@ import {
 import { Formik } from 'formik'
 
 import HeaderBackground from '../../Assets/Images/HeaderBackground.png'
-import { InputPassword, InputText } from '../../Components'
+import { InputPassword, InputText, LoadingMask } from '../../Components'
 import type { FormikFormLogin } from '../../Types'
 
 import {
@@ -93,15 +93,18 @@ const Login = (): React.JSX.Element => {
   const states = useGetStateAndSetters()
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={styles.container}
-    >
-      <ScrollView contentContainerStyle={styles.contentContainerStyle}>
-        {renderImageBackground()}
-        {renderForm(states)}
-      </ScrollView>
-    </KeyboardAvoidingView>
+    <>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        style={styles.container}
+      >
+        <ScrollView contentContainerStyle={styles.contentContainerStyle}>
+          {renderImageBackground()}
+          {renderForm(states)}
+        </ScrollView>
+      </KeyboardAvoidingView>
+      <LoadingMask visible={states.showLoadingMask} />
+    </>
   )
 }
 
