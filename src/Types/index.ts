@@ -24,7 +24,7 @@ export type RegisterFormValues = {
 
 export type FormikFormRegister = FormikProps<RegisterFormValues>
 
-export type Dispatch = AppDispatch
+export type DispatchRedux = AppDispatch
 
 export type ReduxState = RootState
 

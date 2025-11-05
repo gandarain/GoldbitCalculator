@@ -17,7 +17,7 @@ export const showSnackBar = (
   const text =
     type === SUCCESS
       ? title
-      : error?.response?.data?.message || error?.message || 'Terjadi kesalahan dengan server kami'
+      : error?.response?.data?.message || error?.message || 'Terjadi kesalahan dengan server kami.'
 
   Snackbar.show({
     text: text,
