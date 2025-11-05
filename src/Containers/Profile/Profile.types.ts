@@ -1,6 +1,6 @@
 import { TextStyle, ViewStyle } from 'react-native'
 
-import type { Dispatch, UseNavigation } from '../../Types'
+import type { DispatchRedux, UseNavigation } from '../../Types'
 
 export type Styles = {
   contentContainerStyle: ViewStyle
@@ -16,6 +16,6 @@ export type Styles = {
 }
 
 export type States = {
-  dispatch: Dispatch
+  dispatch: DispatchRedux
   navigation: UseNavigation
 }

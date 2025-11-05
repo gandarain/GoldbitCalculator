@@ -1,9 +1,11 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { AxiosError } from 'axios'
 
-import { verifyOtp } from '../../Services/OtpServices/Otp.services'
+import { OtpServices, AuthenticationServices } from '../../Services'
 import { Otp, Snackbar } from '../../Constants'
 import { showSnackBar } from '../../Utils/Snackbar'
+import { setLoginWithToken } from '../../Redux/Reducers/AuthenticationReducers/Authentication.reducers'
+import Routes from '../../Navigation/Routes'
 
 import defaultOtpLength from './VerifyOtp.config'
 import type { States } from './VerifyOtp.types'
@@ -14,6 +16,8 @@ const {
 const {
   TYPE: { SUCCESS, FAILED }
 } = Snackbar
+const { verifyOtp } = OtpServices
+const { register } = AuthenticationServices
 
 export const handleAddDigit =
   (digit: string, otp: string[], setOtp: Dispatch<SetStateAction<string[]>>) => () => {
@@ -43,6 +47,18 @@ export const handleDeleteDigit =
     }
   }
 
+const generatePayloadVerifyOtp = (states: States, code: string) => ({
+  email: states.registration.email,
+  type: REGISTER,
+  otp: code
+})
+
+const generatePayloadRegister = (states: States) => ({
+  fullName: states.registration.fullName,
+  email: states.registration.email,
+  password: states.registration.password
+})
+
 export const handleVerifyOtp = (states: States) => async () => {
   const code = states.otp.join('')
 
@@ -50,17 +66,20 @@ export const handleVerifyOtp = (states: States) => async () => {
 
   states.setShowLoadingMask(true)
 
-  const verifyOtpBody = {
-    email: states.registration.email,
-    type: REGISTER,
-    otp: code
-  }
+  const verifyOtpBody = generatePayloadVerifyOtp(states, code)
+  const registerBody = generatePayloadRegister(states)
 
   try {
     await verifyOtp(verifyOtpBody)
+    const registerResponse = await register(registerBody)
 
-    showSnackBar('OTP berhasil dikirim ke email anda.', SUCCESS)
+    showSnackBar('Register berhasil.', SUCCESS)
     states.setShowLoadingMask(false)
+    states.dispatch(setLoginWithToken({ isLogin: true, token: registerResponse?.token }))
+    states.navigation.reset({
+      index: 0,
+      routes: [{ name: Routes.MainTab }]
+    })
   } catch (error) {
     showSnackBar('', FAILED, error as AxiosError<{ message?: string }>)
     states.setShowLoadingMask(false)
