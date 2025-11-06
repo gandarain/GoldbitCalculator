@@ -1,12 +1,11 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-// import { BASE_URL } from '@env'
+import { BASE_URL } from '@env'
 
 import { Authentication } from '../Constants'
 
 const axiosInstance: AxiosInstance = axios.create({
-  // baseURL: BASE_URL,
-  baseURL: 'http://localhost:4000/api/',
+  baseURL: BASE_URL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',

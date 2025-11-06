@@ -5,7 +5,7 @@ import { OtpServices, AuthenticationServices } from '../../Services'
 import { Otp, Snackbar } from '../../Constants'
 import { showSnackBar } from '../../Utils/Snackbar'
 import { setLoginWithToken } from '../../Redux/Reducers/AuthenticationReducers/Authentication.reducers'
-import Routes from '../../Navigation/Routes'
+import AuthorizedRoutes from '../../Navigation/Routes/AuthorizedRoutes'
 
 import defaultOtpLength from './VerifyOtp.config'
 import type { States } from './VerifyOtp.types'
@@ -77,7 +77,7 @@ export const handleVerifyOtp = (states: States) => async () => {
     states.dispatch(setLoginWithToken({ isLogin: true, token: registerResponse?.token }))
     states.navigation.reset({
       index: 0,
-      routes: [{ name: Routes.MainTab }]
+      routes: [{ name: AuthorizedRoutes.MainTab }]
     })
     states.setShowLoadingMask(false)
   } catch (error) {

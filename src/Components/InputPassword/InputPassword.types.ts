@@ -1,4 +1,4 @@
-import { TextStyle, ViewStyle } from 'react-native'
+import type { TextStyle, ViewStyle } from 'react-native'
 import type { FormikProps } from 'formik'
 
 import type { LoginFormValues, RegisterFormValues } from '../../Types'

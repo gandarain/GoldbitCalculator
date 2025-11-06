@@ -1,10 +1,9 @@
-const Routes = {
+const UnauthorizedRoutes = {
   Welcome: 'Welcome',
   Login: 'Login',
   Register: 'Register',
   VerifyOtp: 'VerifyOtp',
-  InputEmail: 'InputEmail',
-  MainTab: 'MainTab'
+  InputEmail: 'InputEmail'
 } as const
 
-export default Routes
+export default UnauthorizedRoutes

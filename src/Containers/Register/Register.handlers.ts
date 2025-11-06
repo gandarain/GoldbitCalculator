@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios'
 
 import { setRegistration } from '../../Redux/Reducers/RegistrationReducers/Registration.reducers'
-import Routes from '../../Navigation/Routes'
+import UnauthorizedRoutes from '../../Navigation/Routes/UnauthorizedRoutes'
 import { requestOtp } from '../../Services/OtpServices/Otp.services'
 import { Otp, Snackbar } from '../../Constants'
 import { showSnackBar } from '../../Utils/Snackbar'
@@ -34,7 +34,7 @@ export const onSubmitForm = (states: States) => async (values: RegisterFormValue
 
     showSnackBar('OTP berhasil dikirim ke email anda.', SUCCESS)
     states.dispatch(setRegistration(values))
-    states.navigation.navigate(Routes.VerifyOtp)
+    states.navigation.navigate(UnauthorizedRoutes.VerifyOtp)
     states.setShowLoadingMask(false)
   } catch (error) {
     showSnackBar('', FAILED, error as AxiosError<{ message?: string }>)

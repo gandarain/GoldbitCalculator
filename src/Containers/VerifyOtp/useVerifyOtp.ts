@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
 import type { TextInput } from 'react-native'
 
-import type { ReduxState, UseNavigation } from '../../Types'
+import type { ReduxState, UseNavigationUniversal } from '../../Types'
 
 import type { UseOtpConfig, States } from './VerifyOtp.types'
 
@@ -15,7 +15,7 @@ const useVerifyOtp = (config: UseOtpConfig = {}): States => {
   const [timer, setTimer] = useState(60)
   const [showLoadingMask, setShowLoadingMask] = useState(false)
   const dispatch = useDispatch()
-  const navigation = useNavigation<UseNavigation>()
+  const navigation = useNavigation<UseNavigationUniversal>()
 
   return {
     otp,

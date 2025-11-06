@@ -1,6 +1,7 @@
 import type { AxiosError } from 'axios'
 
-import Routes from '../../Navigation/Routes'
+import AuthorizedRoutes from '../../Navigation/Routes/AuthorizedRoutes'
+import UnauthorizedRoutes from '../../Navigation/Routes/UnauthorizedRoutes'
 import { Snackbar } from '../../Constants'
 import { login } from '../../Services/AuthenticationServices/Authentication.services'
 import { showSnackBar } from '../../Utils/Snackbar'
@@ -33,7 +34,7 @@ export const onSubmitForm = (states: States) => async (values: LoginFormValues) 
     states.dispatch(setLoginWithToken({ isLogin: true, token: loginResponse?.token }))
     states.navigation.reset({
       index: 0,
-      routes: [{ name: Routes.MainTab }]
+      routes: [{ name: AuthorizedRoutes.MainTab }]
     })
     states.setShowLoadingMask(false)
   } catch (error) {
@@ -53,5 +54,5 @@ export const onPressIconPassword = (states: States) => () => {
 }
 
 export const onPressForgetPassword = (states: States) => () => {
-  states.navigation.navigate(Routes.InputEmail)
+  states.navigation.navigate(UnauthorizedRoutes.InputEmail)
 }
