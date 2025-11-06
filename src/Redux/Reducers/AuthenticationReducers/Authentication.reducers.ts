@@ -14,13 +14,29 @@ export const setLoginWithToken = createAsyncThunk(
     if (payload.token) {
       await AsyncStorage.setItem(AuthenticationConstants.ACCESS_TOKEN, payload.token)
     }
+
     dispatch(setIsLogin({ isLogin: payload.isLogin }))
   }
 )
 
 export const logoutUser = createAsyncThunk('authentication/logoutUser', async (_, { dispatch }) => {
   await AsyncStorage.removeItem(AuthenticationConstants.ACCESS_TOKEN)
+
   dispatch(setIsLogin({ isLogin: false }))
+})
+
+export const checkLogin = createAsyncThunk('authentication/checkLogin', async (_, { dispatch }) => {
+  try {
+    const token = await AsyncStorage.getItem(AuthenticationConstants.ACCESS_TOKEN)
+
+    if (token) {
+      dispatch(setIsLogin({ isLogin: true }))
+    } else {
+      dispatch(logoutUser())
+    }
+  } catch (err) {
+    dispatch(logoutUser())
+  }
 })
 
 const authenticationSlice = createSlice({

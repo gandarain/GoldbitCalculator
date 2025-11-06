@@ -1,12 +1,21 @@
-import type { NavigationProp } from '@react-navigation/native'
+import type { NavigationProp, CompositeNavigationProp } from '@react-navigation/native'
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
 import type { FormikProps } from 'formik'
 
-import Params from '../Navigation/Params'
+import UnauthorizedRoutesParams from '../Navigation/Routes/UnauthorizedRoutes.params'
+import AuthorizedRoutesParams from '../Navigation/Routes/AuthorizedRoutes.params'
 import SnackbarConstants from '../Constants/Snackbar'
 import type { AppDispatch, RootState } from '../Redux/Store'
 
-export type UseNavigation = NavigationProp<Params>
+export type UseNavigationUnauthorizedRoutes = NavigationProp<UnauthorizedRoutesParams>
+
+export type UseNavigationAuthorizedRoutes = NavigationProp<AuthorizedRoutesParams>
+
+export type UseNavigationUniversal = CompositeNavigationProp<
+  NativeStackNavigationProp<AuthorizedRoutesParams>,
+  NativeStackNavigationProp<UnauthorizedRoutesParams>
+>
 
 export type LoginFormValues = {
   email: string

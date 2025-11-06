@@ -1,7 +1,7 @@
 import { TextStyle, ViewStyle, TextInput } from 'react-native'
 import type { RefObject, Dispatch, SetStateAction } from 'react'
 
-import type { DispatchRedux, UseNavigation } from '../../Types'
+import type { DispatchRedux, UseNavigationUniversal } from '../../Types'
 import type { RegistrationState } from '../../Redux/Reducers/RegistrationReducers/Registration.reducers.types'
 
 export type Styles = {
@@ -41,5 +41,5 @@ export type States = {
   showLoadingMask: boolean
   setShowLoadingMask: (value: boolean) => void
   dispatch: DispatchRedux
-  navigation: UseNavigation
+  navigation: UseNavigationUniversal
 }

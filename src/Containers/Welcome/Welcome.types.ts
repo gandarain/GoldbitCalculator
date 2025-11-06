@@ -1,6 +1,6 @@
 import { ImageStyle, TextStyle, ViewStyle } from 'react-native'
 
-import type { UseNavigation } from '../../Types'
+import type { UseNavigationUnauthorizedRoutes } from '../../Types'
 
 export type Styles = {
   container: ViewStyle
@@ -17,5 +17,5 @@ export type Styles = {
 }
 
 export type States = {
-  navigation: UseNavigation
+  navigation: UseNavigationUnauthorizedRoutes
 }
